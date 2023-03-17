@@ -122,3 +122,52 @@ i:hover {
 .last-message {
     color: rgb(143, 143, 143);;
 }
+
+
+.messages {
+    height: calc(100% - 100px);
+    background-image: url('../img/mine.jpg');
+    padding: 10px;
+    overflow: auto;
+}
+
+.message-input {
+    height: 40px;
+    justify-content: space-around;
+    background-color: #f3eeea;
+}
+
+#message {
+    padding: 5px;
+    border: none;
+    width: 80%;
+}
+
+.message {
+    width: 20%;
+    padding: 20px;
+    position: relative;
+    margin: 8px 0;
+}
+
+.message span {
+    font-size: 15px;
+}
+
+.sender-message {
+    background-color: #d5f9ba;
+    margin-left: auto;
+    border-radius: 95px 95px 0px 95px;
+}
+
+.receiver-message {
+    margin-right: auto;
+    background-color: white;
+    border-radius: 95px 95px 95px 0px;
+}
+
+.sent-time {
+    position: absolute;
+    right: 10px;
+    font-size: 10px;
+}
