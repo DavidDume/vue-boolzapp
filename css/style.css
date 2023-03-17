@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
 }
 i:hover {
     cursor: pointer;
@@ -58,4 +57,68 @@ i:hover {
 
 .header-icons i {
     margin: 0 5px;
+}
+
+.last-access {
+    color: rgb(184, 184, 184);
+    font-size: 15px;
+}
+
+.notif-wrapper {
+    background-color: #8edafc;
+    padding: 10px;
+}
+
+.notif-wrapper i {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    color: #8edafc;
+    margin-right: 5px;
+}
+
+.notif-text {
+    font-size: 12px;
+    line-height: 17px;
+}
+.notif-text a {
+    color: rgb(143, 143, 143);
+}
+
+#search {
+    padding: 5px;
+    border: none;
+    width: 90%;
+}
+
+.input-search {
+    padding: 5px 0;
+}
+
+.input-search i {
+    width: 10%;
+    text-align: center;
+}
+
+.contacts {
+    overflow: auto;
+    height: calc(100% - 155px);
+}
+
+.contacts > .avatar-img {
+    padding-left: 10px;
+}
+
+.contact {
+    justify-content: space-between;
+    padding: 10px;
+}
+.contact:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+}
+
+.last-message {
+    color: rgb(143, 143, 143);;
 }
