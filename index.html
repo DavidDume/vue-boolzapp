@@ -11,7 +11,9 @@
     <title>Boolzap</title>
 </head>
 <body>
-    
+    <div class="background">
+        <div></div>
+    </div>
     <div id="app" class="container flex">
         <aside class="menu">
             <div class="header flex align-center">
@@ -58,9 +60,9 @@
         <main class="message-container">
             <div class="header flex align-center">
                 <div class="avatar flex align-center">
-                    <img class="avatar-img" src="./img/avatar_1.jpg" alt="">
+                    <img class="avatar-img" :src="currentContact.avatar" alt="">
                     <div class="avatar-info">
-                        <span class="avatar-name">Io</span>
+                        <span class="avatar-name">{{currentContact.name}}</span>
                         <div class="last-access">Ultimo accesso oggi alle 12:00</div>
                     </div>
                 </div>
@@ -73,10 +75,10 @@
             </div>
             <div class="messages">
 
-                <div class="message" :class="currentContact.messages[index].status=='sent'?'sender-message':'receiver-message'" v-for="(m, index) in currentContact.messages">
+                <div class="message" :class="currentContact.messages[index].status=='sent'?'sender-message':'receiver-message'" v-for="(message, index) in currentContact.messages">
                     <span>{{currentContact.messages[index].message}}</span>
                     <div class="sent-time">
-                        {{currentContact.date}}
+                        {{message.date}}
                     </div>
                 </div>
 
