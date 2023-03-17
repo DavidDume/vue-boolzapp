@@ -40,52 +40,20 @@
                 <input type="text" placeholder="Cerca contatti" id="search">
             </div>
             <div class="contacts">
-                <div class="contact flex">
+                <div class="contact flex" v-for="(contact, index) in contacts">
                     <div class="avatar flex">
-                        <img class="avatar-img" src="./img/avatar_1.jpg" alt="">
+                        <img :src="contact.avatar" class="avatar-img" alt="contact.name">
                         <div class="avatar-info">
-                            <span class="avatar-name">Io</span>
+                            <span class="avatar-name">{{contact.name}}</span>
                             <div class="last-message">
                                 Ultimo messaggio
                             </div>
                         </div>
                     </div>
-    
                     <div class="contact-last-access">
                         12:00
                     </div>
                 </div>
-                <div class="contact flex">
-                    <div class="avatar flex">
-                        <img class="avatar-img" src="./img/avatar_1.jpg" alt="">
-                        <div class="avatar-info">
-                            <span class="avatar-name">Io</span>
-                            <div class="last-message">
-                                Ultimo messaggio
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="contact-last-access">
-                        12:00
-                    </div>
-                </div>
-                <div class="contact flex">
-                    <div class="avatar flex">
-                        <img class="avatar-img" src="./img/avatar_1.jpg" alt="">
-                        <div class="avatar-info">
-                            <span class="avatar-name">Io</span>
-                            <div class="last-message">
-                                Ultimo messaggio
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="contact-last-access">
-                        12:00
-                    </div>
-
-            </div>
         </aside>
         <main class="message-container">
             <div class="header flex align-center">
@@ -168,6 +136,7 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="contacts.js"></script>
     <script src="main.js"></script>
 
 </body>
