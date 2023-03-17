@@ -40,7 +40,7 @@
                 <input type="text" placeholder="Cerca contatti" id="search">
             </div>
             <div class="contacts">
-                <div class="contact flex" v-for="(contact, index) in contacts">
+                <div class="contact flex" v-for="(contact, index) in contacts" @click="displayMessages(index)">
                     <div class="avatar flex">
                         <img :src="contact.avatar" class="avatar-img" alt="contact.name">
                         <div class="avatar-info">
@@ -72,60 +72,14 @@
                 </div>
             </div>
             <div class="messages">
-                <div class="sender-message message">
-                    <span>messaggio</span> 
+
+                <div class="message" :class="currentContact.messages[index].status=='sent'?'sender-message':'receiver-message'" v-for="(m, index) in currentContact.messages">
+                    <span>{{currentContact.messages[index].message}}</span>
                     <div class="sent-time">
-                        12:00
+                        {{currentContact.date}}
                     </div>
                 </div>
-                <div class="receiver-message message">
-                    <span>messaggio</span> 
-                    <div class="sent-time">
-                        12:00
-                    </div>
-                </div>
-                <div class="sender-message message">
-                    <span>messaggio</span> 
-                    <div class="sent-time">
-                        12:00
-                    </div>
-                </div>
-                <div class="receiver-message message">
-                    <span>messaggio</span> 
-                    <div class="sent-time">
-                        12:00
-                    </div>
-                </div>
-                <div class="receiver-message message">
-                    <span>messaggio</span> 
-                    <div class="sent-time">
-                        12:00
-                    </div>
-                </div>
-                <div class="sender-message message">
-                    <span>messaggio</span> 
-                    <div class="sent-time">
-                        12:00
-                    </div>
-                </div>
-                <div class="receiver-message message">
-                    <span>messaggio</span> 
-                    <div class="sent-time">
-                        12:00
-                    </div>
-                </div>
-                <div class="sender-message message">
-                    <span>messaggio</span> 
-                    <div class="sent-time">
-                        12:00
-                    </div>
-                </div>
-                <div class="sender-message message">
-                    <span>messaggio</span> 
-                    <div class="sent-time">
-                        12:00
-                    </div>
-                </div>
+
             </div>
             <div class="message-input flex align-center">
                 <i class="fa-regular fa-face-smile"></i>
