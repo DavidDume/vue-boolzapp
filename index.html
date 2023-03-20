@@ -39,10 +39,10 @@
             </div>
             <div class="input-search">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Cerca contatti" id="search">
+                <input @keyup="searchContacts()" v-model="searched" type="text" placeholder="Cerca contatti" id="search">
             </div>
             <div class="contacts">
-                <div class="contact flex" v-for="(contact, index) in contacts" @click="displayMessages(index)">
+                <div class="contact flex" v-for="(contact, index) in searchedContacts" @click="displayMessages(index)">
                     <div class="avatar flex">
                         <img :src="contact.avatar" class="avatar-img" alt="contact.name">
                         <div class="avatar-info">

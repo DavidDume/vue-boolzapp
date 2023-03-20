@@ -6,6 +6,8 @@ createApp({
       contacts: contacts,
       currentContact: contacts[0],
       message: '',
+      searchedContacts: contacts,
+      searched: '',
     };
   },
   methods: {
@@ -26,6 +28,11 @@ createApp({
           status: 'received',
         });
       }, 1000);
+    },
+    searchContacts() {
+      this.searchedContacts = this.contacts.filter((contact) => {
+        return contact.name.toLowerCase().includes(this.searched.toLowerCase());
+      });
     },
   },
 }).mount('#app');
