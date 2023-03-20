@@ -1,29 +1,38 @@
+const DateTime = luxon.DateTime;
 const { createApp } = Vue;
 
 createApp({
   data() {
     return {
       contacts: contacts,
+      searchedContacts: contacts,
       currentContact: contacts[0],
       message: '',
-      searchedContacts: contacts,
       searched: '',
     };
   },
   methods: {
     displayMessages(index) {
-      this.currentContact = contacts[index];
+      this.currentContact = this.searchedContacts[index];
+      this.searchedContacts = contacts;
+      this.searched = '';
     },
     sendMessage() {
+      let currentTime = DateTime.now()
+        .setLocale('it')
+        .toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+
       this.currentContact.messages.push({
-        date: '25/06/2021',
+        date: currentTime,
         message: this.message,
         status: 'sent',
       });
       this.message = '';
       setTimeout(() => {
         this.currentContact.messages.push({
-          date: '25/06/2021',
+          date: DateTime.now()
+            .setLocale('it')
+            .toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
           message: 'ok',
           status: 'received',
         });

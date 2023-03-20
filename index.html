@@ -42,18 +42,18 @@
                 <input @keyup="searchContacts()" v-model="searched" type="text" placeholder="Cerca contatti" id="search">
             </div>
             <div class="contacts">
-                <div class="contact flex" v-for="(contact, index) in searchedContacts" @click="displayMessages(index)">
+                <div class="contact flex" :class="index == contacts.indexOf(currentContact) ? 'active': ''" v-for="(contact, index) in searchedContacts" @click="displayMessages(index)">
                     <div class="avatar flex">
                         <img :src="contact.avatar" class="avatar-img" alt="contact.name">
                         <div class="avatar-info">
                             <span class="avatar-name">{{contact.name}}</span>
                             <div class="last-message">
-                                Ultimo messaggio
+                                {{contact.messages[contact.messages.length - 1].message}}
                             </div>
                         </div>
                     </div>
                     <div class="contact-last-access">
-                        12:00
+                        {{contact.messages[contact.messages.length - 1].date}}
                     </div>
                 </div>
         </aside>
@@ -63,7 +63,7 @@
                     <img class="avatar-img" :src="currentContact.avatar" alt="">
                     <div class="avatar-info">
                         <span class="avatar-name">{{currentContact.name}}</span>
-                        <div class="last-access">Ultimo accesso oggi alle 12:00</div>
+                        <div class="last-access">Ultimo accesso {{currentContact.messages[currentContact.messages.length - 1].date}}</div>
                     </div>
                 </div>
 
@@ -91,6 +91,7 @@
         </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="contacts.js"></script>
     <script src="main.js"></script>

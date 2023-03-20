@@ -81,6 +81,10 @@ i:hover {
     color: rgb(184, 184, 184);
     font-size: 15px;
 }
+.contact-last-access {
+    font-size: 10px;
+    width: 20%;
+}
 
 .notif-wrapper {
     background-color: #8edafc;
@@ -121,7 +125,8 @@ i:hover {
 }
 
 .contacts {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: calc(100% - 155px);
     background-color: white;
 }
@@ -139,8 +144,13 @@ i:hover {
     cursor: pointer;
 }
 
+.active {
+    background-color: #eaeaea;
+}
+
 .last-message {
-    color: rgb(143, 143, 143);;
+    color: rgb(143, 143, 143);
+    width: 80%;
 }
 
 
