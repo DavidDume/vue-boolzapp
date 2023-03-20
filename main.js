@@ -5,12 +5,20 @@ createApp({
     return {
       contacts: contacts,
       currentContact: contacts[0],
+      message: '',
     };
   },
   methods: {
     displayMessages(index) {
       this.currentContact = contacts[index];
-      console.log(currentContact);
+    },
+    sendMessage() {
+      this.currentContact.messages.push({
+        date: '25/06/2021',
+        message: this.message,
+        status: 'sent',
+      });
+      this.message = '';
     },
   },
 }).mount('#app');
