@@ -19,6 +19,13 @@ createApp({
         status: 'sent',
       });
       this.message = '';
+      setTimeout(() => {
+        this.currentContact.messages.push({
+          date: '25/06/2021',
+          message: 'ok',
+          status: 'received',
+        });
+      }, 1000);
     },
   },
 }).mount('#app');
