@@ -63,7 +63,8 @@
                     <img class="avatar-img" :src="currentContact.avatar" alt="">
                     <div class="avatar-info">
                         <span class="avatar-name">{{currentContact.name}}</span>
-                        <div class="last-access">Ultimo accesso {{currentContact.messages[currentContact.messages.length - 1].date}}</div>
+                        <div class="last-access" :class="{'hidden': isTyping}">Ultimo accesso {{currentContact.messages[currentContact.messages.length - 1].date}}</div>
+                        <div class="last-access" :class="{'hidden': !isTyping}">Sta scrivendo...</div>
                     </div>
                 </div>
 
@@ -75,7 +76,7 @@
             </div>
             <div class="messages">
 
-                <div class="message" :class="currentContact.messages[index].status=='sent'?'sender-message':'receiver-message'" v-for="(message, index) in currentContact.messages">
+                <div class="message" :class="currentContact.messages[index].status=='sent'?'sender-message':'receiver-message'" v-for="(message, index) in currentContact.messages" @mouseover="hover = index" @mouseleave="hover = null">
                     <span>{{currentContact.messages[index].message}}</span>
                     <div class="sent-time">
                         {{message.date}}

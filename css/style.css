@@ -201,3 +201,7 @@ i:hover {
     right: 15px;
     font-size: 10px;
 }
+
+.hidden {
+    display: none;
+}

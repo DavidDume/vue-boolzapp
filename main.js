@@ -9,6 +9,7 @@ createApp({
       currentContact: contacts[0],
       message: '',
       searched: '',
+      isTyping: false,
     };
   },
   methods: {
@@ -20,19 +21,21 @@ createApp({
     sendMessage() {
       let currentTime = DateTime.now()
         .setLocale('it')
-        .toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+        .toLocaleString(DateTime.TIME_24_SIMPLE);
 
       this.currentContact.messages.push({
         date: currentTime,
         message: this.message,
         status: 'sent',
       });
+      this.isTyping = true;
       this.message = '';
       setTimeout(() => {
-        this.currentContact.messages.push({
+        this.isTyping = false;
+        return this.currentContact.messages.push({
           date: DateTime.now()
             .setLocale('it')
-            .toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
+            .toLocaleString(DateTime.TIME_24_SIMPLE),
           message: 'ok',
           status: 'received',
         });
